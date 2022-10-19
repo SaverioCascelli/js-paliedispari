@@ -18,15 +18,6 @@ const bntInputEvenGame = document.querySelector(".row:last-child  button");
 const radioButton = document.getElementsByClassName("radio-ev");
 
 
-
-
-
-
-addChecked(radioButton);
-
-
-
-
 btnInputPalindrome.addEventListener("click",  function(){
     const isPalindrome = checkPalindrome(palindromeInput.value);
     if (isPalindrome){
@@ -35,25 +26,26 @@ btnInputPalindrome.addEventListener("click",  function(){
     palindromeInput.value = "";
 })
 
+//
 bntInputEvenGame.addEventListener("click",  function(){
     const evenChecked = document.querySelector(".radio-ev[checked]");
     const evenOrOddValue = evenChecked.value;
 
-    let min = 1;
-    let max = 5;
-    let random = randomGen(min,max);
+    const min = 1;
+    const max = 5;
+    const random = randomGen(min,max);
     
     const gameResult = evenOrOddGame(evenOrOddGameInput.value , random , evenOrOddValue );
-    evenOrOddGameOutput.innerHTML = "il computer sceglie: " + random +".";
+    evenOrOddGameOutput.innerHTML = "Il computer sceglie: " + random +". ";
     if (gameResult){
-        evenOrOddGameOutput.innerHTML += " Hai vinto!"
-    }else evenOrOddGameOutput.innerHTML +=" Hai perso";
+        evenOrOddGameOutput.innerHTML += "Hai vinto!"
+    }else evenOrOddGameOutput.innerHTML +="Hai perso";
 
 })
 
 
 
-//remove all checked attribute in array arr and set up a new checked attribute on click event
+//remove all checked attribute in array arr and set up a new checked attribute on click event over them
 function addChecked(arr){
     for(let i = 0 ; i < arr.length; i++){
         arr[i].addEventListener("click" , function(){
