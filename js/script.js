@@ -11,8 +11,9 @@
 
 const palindromeInput = document.getElementById("palindrome-input"); 
 const btnInputPalindrome = document.querySelector(".row:first-child button");
-const palindromeOutput = document.querySelector(".col:first-child h4");
-const evenChecked = document.querySelector("input[name = even-or-odd]:checked");
+const palindromeOutput = document.querySelector(".row:first-child  h4");
+const evenOrOddGameInput = document.getElementById("even-or-od-imput");
+const evenOrOddGameOutput = document.querySelector(".row:last-child h4");
 const bntInputEvenGame = document.querySelector(".row:last-child  button");
 const radioButton = document.getElementsByClassName("radio-ev");
 
@@ -20,7 +21,37 @@ const radioButton = document.getElementsByClassName("radio-ev");
 
 
 
+
 addChecked(radioButton);
+
+
+
+
+btnInputPalindrome.addEventListener("click",  function(){
+    const isPalindrome = checkPalindrome(palindromeInput.value);
+    if (isPalindrome){
+        palindromeOutput.innerHTML = "è palindroma";
+    }else palindromeOutput.innerHTML = "non è palindroma";
+    palindromeInput.value = "";
+})
+
+bntInputEvenGame.addEventListener("click",  function(){
+    const evenChecked = document.querySelector(".radio-ev[checked]");
+    const evenOrOddValue = evenChecked.value;
+
+    let min = 1;
+    let max = 5;
+    let random = randomGen(min,max);
+    
+    const gameResult = evenOrOddGame(evenOrOddGameInput.value , random , evenOrOddValue );
+    evenOrOddGameOutput.innerHTML = "il computer sceglie: " + random +".";
+    if (gameResult){
+        evenOrOddGameOutput.innerHTML += " Hai vinto!"
+    }else evenOrOddGameOutput.innerHTML +=" Hai perso";
+
+})
+
+
 
 //remove all checked attribute in array arr and set up a new checked attribute on click event
 function addChecked(arr){
@@ -40,25 +71,14 @@ function removeChecked(arr){
 }
 
 
-btnInputPalindrome.addEventListener("click",  function(){
-    const isPalindrome = checkPalindrome(palindromeInput.value);
-    if (isPalindrome){
-        palindromeOutput.innerHTML = "è palindroma";
-    }else palindromeOutput.innerHTML = "non è palindroma";
-    palindromeInput.value = "";
-})
-
-bntInputEvenGame.addEventListener("click",  function(){
-   
-})
-
-
 //given two numb and winConditio (0even, 1odd)
 //return true if sum of numb meet the winConditio
 function evenOrOddGame(numb1 , numb2, winCondition){
-   const sum = numb1 + numb2;
-   return isOdd(sum) === Boolean(winCondition);
+    let intCondition = parseInt(winCondition)
+    const sum = parseInt(numb1) + parseInt(numb2);
+    return isOdd(sum) === Boolean(intCondition);
 }
+
 
 //given a string of 1 word, return true if palindrome or false if is not
 function checkPalindrome(word){
