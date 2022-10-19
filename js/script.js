@@ -12,8 +12,8 @@
 let palindromeWord = "asaa";
 
 
+console.log(randomGen(1,5));
 
-console.log(checkPalindrome(palindromeWord));
 
 function checkPalindrome(word){
 
@@ -24,4 +24,12 @@ function checkPalindrome(word){
     }
     return true;
 }
+
+function randomGen(min , max){
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+
+
 
