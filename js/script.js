@@ -9,13 +9,25 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-const palindromeWord = "asaa";
+const palindromeInput = document.getElementById("palindrome-input"); 
+const btnInput = document.querySelector(".col:first-child button");
+const palindromeOutput = document.querySelector(".col:first-child h4");
+
+btnInput.addEventListener("click",  function(){
+    const isPalindrome = checkPalindrome(palindromeInput.value);
+    if (isPalindrome){
+        palindromeOutput.innerHTML = "è palindroma";
+    }else palindromeOutput.innerHTML = "non è palindroma";
+    palindromeInput.value = "";
+})
 
 
 
-//return true if sun of both number is odd or false if is even
-function evenOrOddGame(numb1 , numb2){
-   return isOdd(numb1 + numb2);
+//given two numb and winConditio (0even, 1odd)
+//return true if sum of numb meet the winConditio
+function evenOrOddGame(numb1 , numb2, winCondition){
+   const sum = numb1 + numb2;
+   return isOdd(sum) === Boolean(winCondition);
 }
 
 //given a string of 1 word, return true if palindrome or false if is not
