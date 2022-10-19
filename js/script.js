@@ -8,3 +8,20 @@
 // Sommiamo i due numeri
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
+
+let palindromeWord = "elle";
+
+
+
+console.log(checkPalindrome(palindromeWord));
+
+function checkPalindrome(word){
+    let j = word.length-1;
+    for( let i = 0 ; i < word.length / 2; i++, j--){
+        if(word[i] !== word[j]){
+            return false;
+        }
+        j--;
+    }
+    return true;
+}
