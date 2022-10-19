@@ -12,6 +12,11 @@
 const palindromeInput = document.getElementById("palindrome-input"); 
 const btnInput = document.querySelector(".col:first-child button");
 const palindromeOutput = document.querySelector(".col:first-child h4");
+const evenChecked = document.querySelector("input[name = even-or-odd]:checked");
+
+
+console.log(evenChecked);
+
 
 btnInput.addEventListener("click",  function(){
     const isPalindrome = checkPalindrome(palindromeInput.value);
