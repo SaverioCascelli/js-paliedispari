@@ -9,7 +9,7 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-let palindromeWord = "elle";
+let palindromeWord = "aasaa";
 
 
 
@@ -21,7 +21,7 @@ function checkPalindrome(word){
         if(word[i] !== word[j]){
             return false;
         }
-        j--;
     }
     return true;
 }
+
