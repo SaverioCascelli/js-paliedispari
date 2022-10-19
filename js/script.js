@@ -9,15 +9,15 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-let palindromeWord = "aasaa";
+let palindromeWord = "asaa";
 
 
 
 console.log(checkPalindrome(palindromeWord));
 
 function checkPalindrome(word){
-    let j = word.length-1;
-    for( let i = 0 ; i < word.length / 2; i++, j--){
+
+    for( let i = 0, j = word.length-1; i < word.length / 2; i++, j--){
         if(word[i] !== word[j]){
             return false;
         }
