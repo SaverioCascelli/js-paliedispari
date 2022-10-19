@@ -35,8 +35,10 @@ bntInputEvenGame.addEventListener("click",  function(){
     const max = 5;
     const random = randomGen(min,max);
     
-    const gameResult = evenOrOddGame(evenOrOddGameInput.value , random , evenOrOddValue );
     evenOrOddGameOutput.innerHTML = "Il computer sceglie: " + random +". ";
+
+    const gameResult = evenOrOddGame(evenOrOddGameInput.value , random , evenOrOddValue );
+    
     if (gameResult){
         evenOrOddGameOutput.innerHTML += "Hai vinto!"
     }else evenOrOddGameOutput.innerHTML +="Hai perso";
@@ -78,8 +80,9 @@ function checkPalindrome(word){
     // set up two counter:  i at 0 (first character of the word)    who gets a +1 in every cicle
     //                      j at the last char of the word          who gets a -1 in every cicle
     //compare the extrem char of the word and found out if the word is palindrome
-    for( let i = 0, j = word.length-1; i < word.length / 2; i++, j--){
-        if(word[i] !== word[j]){
+    const wordLower = word.toLowerCase();
+    for( let i = 0, j = wordLower.length-1; i < wordLower.length / 2; i++, j--){
+        if(wordLower[i] !== wordLower[j]){
             return false;
         }
     }
