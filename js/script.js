@@ -10,15 +10,37 @@
 // Dichiariamo chi ha vinto.
 
 const palindromeInput = document.getElementById("palindrome-input"); 
-const btnInput = document.querySelector(".col:first-child button");
+const btnInputPalindrome = document.querySelector(".row:first-child button");
 const palindromeOutput = document.querySelector(".col:first-child h4");
 const evenChecked = document.querySelector("input[name = even-or-odd]:checked");
+const bntInputEvenGame = document.querySelector(".row:last-child  button");
+const radioButton = document.getElementsByClassName("radio-ev");
 
 
-console.log(evenChecked);
 
 
-btnInput.addEventListener("click",  function(){
+
+addChecked(radioButton);
+
+//remove all checked attribute in array arr and set up a new checked attribute on click event
+function addChecked(arr){
+    for(let i = 0 ; i < arr.length; i++){
+        arr[i].addEventListener("click" , function(){
+            removeChecked(arr);
+            arr[i].setAttribute("checked" , "checked");
+        })
+    } 
+}
+
+//remove all checked attribute in array 
+function removeChecked(arr){
+    for(let i = 0 ; i < arr.length; i++){
+        arr[i].removeAttribute("checked"); 
+    } 
+}
+
+
+btnInputPalindrome.addEventListener("click",  function(){
     const isPalindrome = checkPalindrome(palindromeInput.value);
     if (isPalindrome){
         palindromeOutput.innerHTML = "è palindroma";
@@ -26,6 +48,9 @@ btnInput.addEventListener("click",  function(){
     palindromeInput.value = "";
 })
 
+bntInputEvenGame.addEventListener("click",  function(){
+   
+})
 
 
 //given two numb and winConditio (0even, 1odd)
