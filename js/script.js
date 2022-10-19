@@ -9,12 +9,14 @@
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 // Dichiariamo chi ha vinto.
 
-let palindromeWord = "asaa";
+const palindromeWord = "asaa";
 
 
-console.log(isOdd(3));
 
-
+//return true if sun of both number is odd or false if is even
+function evenOrOddGame(numb1 , numb2){
+   return isOdd(numb1 + numb2);
+}
 
 //given a string of 1 word, return true if palindrome or false if is not
 function checkPalindrome(word){
@@ -40,7 +42,6 @@ function randomGen(min , max){
 function isOdd(numb){
     //The first ! coerce the value to a boolean and inverse it. So to reverse it back to true, we put another ! on it.
     return !!(numb % 2);
-    
 }
 
 
