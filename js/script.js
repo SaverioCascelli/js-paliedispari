@@ -12,7 +12,7 @@
 let palindromeWord = "asaa";
 
 
-console.log(randomGen(1,5));
+console.log(isOdd(3));
 
 
 
@@ -33,6 +33,14 @@ function checkPalindrome(word){
 //returning a random number between min e max. Both min and max included
 function randomGen(min , max){
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+//returning ture if  numb is odd and false if it's not
+function isOdd(numb){
+    //The first ! coerce the value to a boolean and inverse it. So to reverse it back to true, we put another ! on it.
+    return !!(numb % 2);
+    
 }
 
 
